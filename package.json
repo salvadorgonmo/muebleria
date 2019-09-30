@@ -1,0 +1,43 @@
+{
+  "name": "muebleria",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev-server": "nodemon --exec babel-node server/index.js --ignore dist/",
+    "build-development": "webpack --mode development",
+    "client-start": "webpack-dev-server --mode development --open --hot",
+    "build-production": "webpack --mode production",
+    "dev-bundle": "webpack -wd"
+  },
+  "author": "Salvador Gonzalez",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.19.0",
+    "css-loader": "^3.2.0",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mongoose": "^5.7.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.4.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.2",
+    "react-test-renderer": "^16.9.0",
+    "webpack-dev-server": "^3.8.1"
+  }
+}

@@ -1,17 +1,25 @@
 const express = require('express')
-const monggose = require('mongoose')
+const mongoose = require('mongoose')
 const app = express()
 const port = 3000
 const bodyParser = require('body-parser')
+const rutas = require('./routes/usuarios')
 
-monggose.connect('mongodb://localhost/muebleria')
+mongoose.connect('mongodb://localhost/muebleria', {useNewUrlParser: true})
 
-const db = monggose.connection
+const db = mongoose.connection
 db.on('error', console.error.bind(console, 'error'))
 db.once('open', () => {
-  console.log('connected succesfully')
+  console.log('Conectado satisfactoriamente a la base de datos muebleria')
 })
 
+app.use(bodyParser.urlencoded({ extended: false}))
+app.use('/', rutas)
+
 app.listen(port, () => {
-  console.log(`APP IS RUNNING IN: ${port}`)
+  console.log(`La aplicacion esta corriendo en el puerto: ${port}`)
 })
+
+
+
+module.exports = app
