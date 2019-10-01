@@ -12,6 +12,9 @@ db.on('error', console.error.bind(console, 'error'))
 db.once('open', () => {
   console.log('Conectado satisfactoriamente a la base de datos muebleria')
 })
+const router = require('./router')
+
+app.use('/', router)
 
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use('/', rutas)
