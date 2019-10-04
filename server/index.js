@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const app = express()
 const port = 3000
 const bodyParser = require('body-parser')
-const rutas = require('./routes/usuarios')
+
 
 mongoose.connect('mongodb://localhost/muebleria', {useNewUrlParser: true})
 
@@ -14,7 +14,8 @@ db.once('open', () => {
 })
 
 app.use(bodyParser.urlencoded({ extended: false}))
-app.use('/', rutas)
+app.use('/usuarios', require('./routes/users'))
+app.use('/categorias',require('./routes/categories'))
 
 app.listen(port, () => {
   console.log(`La aplicacion esta corriendo en el puerto: ${port}`)
