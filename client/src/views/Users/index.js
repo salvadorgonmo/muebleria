@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Usuarios = ({
+const Users = ({
 
 }) => {
   return (
@@ -10,4 +10,4 @@ const Usuarios = ({
   )
 }
 
-export default Usuarios
+export default Users
