@@ -22,6 +22,9 @@ db.once('close', () => {
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/usuarios', require('./routes/users'))
 app.use('/categorias',require('./routes/categories'))
+app.use('/perfiles',require('./routes/profiles'))
+app.use('/productos',require('./routes/products'))
+app.use('/clientes',require('./routes/clients'))
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`)
