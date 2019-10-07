@@ -6,8 +6,8 @@ const productsModel = new Schema({
     code: Number,
     description: String,
     stock: Number,
-    buyPrice:  Schema.Types.Decimal128,
-    sellPrice:  Schema.Types.Decimal128,
+    buyPrice: Number,
+    sellPrice:  Number,
     createdDate: { type: Date, default: Date.now},
     category: {type: Schema.Types.ObjectId, ref: "categories"}
 })
