@@ -4,6 +4,7 @@ const config = require('../config')
 const app = express()
 const port = config.PORT || 3000
 const bodyParser = require('body-parser')
+const auth = require('./auth-config')
 
 mongoose.connect('mongodb://localhost/furniture-store', {
   useNewUrlParser: true, 
@@ -18,8 +19,9 @@ db.once('open', () => {
 db.once('close', () => {
   console.log('The connection with the database furnitureStore was closed.')
 })
-
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(auth().initialize())
 app.use('/usuarios', require('./routes/users'))
 app.use('/categorias',require('./routes/categories'))
 app.use('/perfiles',require('./routes/profiles'))
