@@ -7,23 +7,23 @@ const Menu = ({
 
   return (
     <React.Fragment>
-      <ul>
-        <li>
+      <div className={styles.container}>
+        <a>
           <Link to='/' className={styles.products}> Menu principal </Link>
-        </li>
-        <li>
+        </a>
+        <a>
           <Link to='/usuarios'> Usuarios </Link>
-        </li>
-        <li>
+        </a>
+        <a>
           <Link to='/productos'> Productos </Link>
-        </li>
-        <li>
+        </a>
+        <a>
           <Link to='/categorias'> Categorias </Link>
-        </li>
-        <li>
+        </a>
+        <a>
           <Link to='/clientes'> Clientes </Link>
-        </li>
-      </ul>
+        </a>
+      </div>
     </React.Fragment>
   )
 }
