@@ -7,9 +7,9 @@ const Users = new Schema({
   photo: String,
   status: Boolean,
   password: String,
-  lastLogin: {type: Date, default: Date.now},
+  lastLogin: { type: Date, default: Date.now },
   lastName: String,
-  profile: {type: Schema.Types.ObjectId, ref: "profiles"}
+  profile: { type: Schema.Types.ObjectId, ref: 'profiles' }
 })
 
 module.exports = mongoose.model('usuarios', Users)
