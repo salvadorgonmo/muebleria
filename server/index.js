@@ -4,6 +4,11 @@ const config = require('../config')
 const app = express()
 const port = config.PORT || 3000
 const bodyParser = require('body-parser')
+const cors = require('cors')
+
+app.use(cors({
+  origin: 'http://localhost:8080',
+}))
 
 mongoose.connect('mongodb://localhost/furniture-store', {
   useNewUrlParser: true, 

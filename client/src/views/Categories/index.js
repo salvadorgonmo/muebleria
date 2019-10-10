@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Table from '../../components/common/Table'
 
-const Categories = ({
+class Categories extends Component {
+  constructor(props) {
+    super(props)
+  }
 
-}) => {
-  return (
-    <React.Fragment>
-      <header> <h3> Categorias </h3> </header>
-    </React.Fragment>
-  )
+  componentDidMount() {
+    //
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <Table />
+      </React.Fragment>
+    )
+  }
 }
 
 export default Categories
