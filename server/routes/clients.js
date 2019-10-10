@@ -1,12 +1,18 @@
 const express = require('express')
 const route = express.Router()
-const clientsController = require('../controllers/clients')
+const {
+  postClient,
+  getClients,
+  getClient,
+  putClient,
+  deleteClient
+} = require('../controllers/clients')
+const { authenticate } = require('../middlewares/auth')
 
-
-route.post('/',clientsController.postClient)
-route.get('/',clientsController.getClients)
-route.get('/:id',clientsController.getClient)
-route.put('/:id',clientsController.putClient)
-route.delete('/:id',clientsController.deleteClient)
+route.post('/', authenticate(), postClient)
+route.get('/', authenticate(), getClients)
+route.get('/:id', authenticate(), getClient)
+route.put('/:id', authenticate(), putClient)
+route.delete('/:id', authenticate(), deleteClient)
 
 module.exports = route

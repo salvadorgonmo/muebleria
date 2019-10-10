@@ -10,10 +10,15 @@
     "build-development": "webpack --mode development",
     "client-start": "webpack-dev-server --mode development --open --hot",
     "build-production": "webpack --mode production",
+    "standard": "standard",
+    "lint": "standard --fix",
     "dev-bundle": "webpack -wd"
   },
   "author": "Salvador Gonzalez",
   "license": "ISC",
+  "standard": {
+    "ignore": "client/"
+  },
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "7.1.4",
@@ -45,6 +50,7 @@
     "jest": "^24.9.0",
     "nodemon": "^1.19.2",
     "react-test-renderer": "^16.9.0",
+    "standard": "^14.3.1",
     "webpack-dev-server": "^3.8.1"
   }
 }
