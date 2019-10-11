@@ -7,7 +7,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 })
 
 module.exports = {
-  entry: './client/src/index.js',
+  entry: ['@babel/polyfill', './client/src/index.js'],
   output: {
     path: path.resolve(__dirname, 'client/dist'),
     filename: 'index_bundled.js'

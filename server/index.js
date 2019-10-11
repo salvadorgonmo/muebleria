@@ -9,6 +9,12 @@ const {
   bootPassport
 } = require('./middlewares/auth')
 
+const cors = require('cors')
+
+app.use(cors({
+  origin: 'http://localhost:8080',
+}))
+
 mongoose.connect('mongodb://localhost/furniture-store', {
   useNewUrlParser: true,
   useUnifiedTopology: true
