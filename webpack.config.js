@@ -1,16 +1,16 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin")
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./client/src/index.html",
-  filename: "./index.html"
-});
+  template: './client/src/index.html',
+  filename: './index.html'
+})
 
 module.exports = {
-  entry: ["@babel/polyfill","./client/src/index.js"],
+  entry: ['@babel/polyfill', './client/src/index.js'],
   output: {
     path: path.resolve(__dirname, 'client/dist'),
-    filename: "index_bundled.js"
+    filename: 'index_bundled.js'
   },
   module: {
     rules: [
@@ -18,17 +18,17 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       },
       {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader"
+            loader: 'style-loader'
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: true
             }
@@ -38,7 +38,7 @@ module.exports = {
     ]
   },
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   plugins: [htmlPlugin]
 }
