@@ -1,41 +1,81 @@
-const categoriesModel = require('../models/Categories.js')
+const Categories = require('../models/Categories.js')
 
-const postCategories = async function(req,res){
-    const categories = new categoriesModel(req.body)
-    await categories.save()
-    res.json({categories})
-}
-const getCategories = async function(req,res){
-    await categoriesModel.find({},(err,categories)=>{
-        if(err) return res.json({message: `Error: ${err}`})
-        res.json({categories})
+const postCategories = async (req, res) => {
+  try {
+    const category = new Categories(req.body)
+    await category.save()
+    res.json({
+      message: `Category '${category.category}' was created successfully.`,
+      category
     })
-}
-const getCategory = async function(req,res){
-    const categoryId = req.params.id
-    await categoriesModel.findById(categoryId,(err,category)=>{
-        if(err) return res.json({message: `Error: ${err}`})
-        res.json({category})
+  } catch (err) {
+    res.status(500).json({
+      message: `There was an error. Details: ${err}`
     })
+  }
 }
-const putCategory = async function(req,res){
-    const categoryId = req.params.id
-    await categoriesModel.findByIdAndUpdate(categoryId,(err,category)=>{
-        if(err) return res.json({message: `Error: ${err}`})
-        res.json({category})
+
+const getCategories = async (req, res) => {
+  try {
+    const categories = await Categories.find({})
+    res.json({ categories })
+  } catch (err) {
+    res.status(500).json({ message: `There was an error. Details: ${err}` })
+  }
+}
+
+const getCategory = async (req, res) => {
+  try {
+    const { id } = req.params
+    const category = await Categories.findById(id)
+    if (!category) {
+      return res.status(404).json({
+        message: 'No valid entry found for provided ID.'
+      })
+    }
+    res.json({ category })
+  } catch (err) {
+    res.status(500).json({
+      message: `There was an error. Details: ${err}`
     })
+  }
 }
-const deleteCategories = async function(req,res){
-    const categoryId = req.params.id
-    await categoriesModel.findByIdAndDelete(categoryId,(err,category)=>{
-        if(err) return res.json({message: `Error: ${err}`})
-        res.json({category})
-    })
+
+const putCategory = async (req, res) => {
+  try {
+    const { id } = req.params
+    const result = await Categories
+      .findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    if (!result) {
+      res.status(404).json({
+        message: 'No valid entry found for provided ID.'
+      })
+    }
+    res.status(200).json()
+  } catch (err) {
+    res.status(500).json({ message: `There was an error. Details: ${err}` })
+  }
 }
+
+const deleteCategories = async (req, res) => {
+  try {
+    const { id } = req.params
+    const result = await Categories.findByIdAndDelete(id)
+    if (!result) {
+      res.status(404).json({
+        message: 'No valid entry found for provided ID.'
+      })
+    }
+    res.status(200).json()
+  } catch (err) {
+    res.status(500).json({ message: `There was an error. Details: ${err}` })
+  }
+}
+
 module.exports = {
-    postCategories,
-    getCategories,
-    getCategory,
-    putCategory,
-    deleteCategories
+  postCategories,
+  getCategories,
+  getCategory,
+  putCategory,
+  deleteCategories
 }

@@ -6,9 +6,10 @@ const Users = new Schema({
   userName: String,
   photo: String,
   status: Boolean,
-  lastLogin: {type: Date, default: Date.now},
+  password: String,
+  lastLogin: { type: Date, default: Date.now },
   lastName: String,
-  profile: {type: Schema.Types.ObjectId, ref: "profiles"}
+  profile: { type: Schema.Types.ObjectId, ref: 'profiles' }
 })
 
 module.exports = mongoose.model('usuarios', Users)

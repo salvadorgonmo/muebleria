@@ -1,45 +1,45 @@
-const Products = require('../models/products')
+const Clients = require('../models/clients')
 
-const postProducts = async (req, res) => {
+const postClient = async (req, res) => {
   try {
-    const product = new Products(req.body)
-    await product.save()
-    res.json(product)
+    const client = new Clients(req.body)
+    await client.save()
+    res.json({ client })
   } catch (err) {
     res.status(500).json({ message: `There was an error. Details: ${err}` })
   }
 }
 
-const getProducts = async (req, res) => {
+const getClients = async (req, res) => {
   try {
-    const products = await Products.find({})
-    res.json({ products })
+    const clients = await Clients.find({})
+    res.json({ clients })
   } catch (err) {
     res.status(500).json({ message: `There was an error. Details: ${err}` })
   }
 }
 
-const getProduct = async (req, res) => {
+const getClient = async (req, res) => {
   try {
     const { id } = req.params
-    const product = await Products.findById(id)
-    if (!product) {
+    const client = await Clients.findById(id)
+    if (!client) {
       res.status(404).json({
         message: 'No valid entry found for provided ID.'
       })
     }
-    res.json({ product })
+    res.json({ client })
   } catch (err) {
     res.status(500).json({ message: `There was an error. Details: ${err}` })
   }
 }
 
-const putProduct = async (req, res) => {
+const putClient = async (req, res) => {
   try {
     const { id } = req.params
-    const product = await Products
+    const client = await Clients
       .findByIdAndUpdate(id, req.body, { useFindAndModify: false })
-    if (!product) {
+    if (!client) {
       res.status(404).json({
         message: 'No valid entry found for provided ID.'
       })
@@ -50,11 +50,11 @@ const putProduct = async (req, res) => {
   }
 }
 
-const deleteProduct = async (req, res) => {
+const deleteClient = async (req, res) => {
   try {
     const { id } = req.params
-    const product = await Products.findByIdAndDelete(id)
-    if (!product) {
+    const client = await Clients.findByIdAndRemove(id)
+    if (!client) {
       res.status(404).json({
         message: 'No valid entry found for provided ID.'
       })
@@ -66,9 +66,9 @@ const deleteProduct = async (req, res) => {
 }
 
 module.exports = {
-  postProducts,
-  getProduct,
-  getProducts,
-  putProduct,
-  deleteProduct
+  postClient,
+  getClient,
+  getClients,
+  putClient,
+  deleteClient
 }

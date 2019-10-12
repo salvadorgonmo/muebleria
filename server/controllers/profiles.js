@@ -1,45 +1,44 @@
-const Products = require('../models/products')
+const Profiles = require('../models/profiles.js')
 
-const postProducts = async (req, res) => {
+const postProfile = async (req, res) => {
   try {
-    const product = new Products(req.body)
-    await product.save()
-    res.json(product)
+    const profile = new Profiles(req.body)
+    await profile.save()
+    res.json({ profile })
   } catch (err) {
     res.status(500).json({ message: `There was an error. Details: ${err}` })
   }
 }
 
-const getProducts = async (req, res) => {
+const getProfiles = async (req, res) => {
   try {
-    const products = await Products.find({})
-    res.json({ products })
+    const profile = await Profiles.find({})
+    res.json({ profile })
   } catch (err) {
     res.status(500).json({ message: `There was an error. Details: ${err}` })
   }
 }
 
-const getProduct = async (req, res) => {
+const getProfile = async (req, res) => {
   try {
     const { id } = req.params
-    const product = await Products.findById(id)
-    if (!product) {
+    const profile = await Profiles.findById(id)
+    if (!profile) {
       res.status(404).json({
         message: 'No valid entry found for provided ID.'
       })
     }
-    res.json({ product })
+    res.json({ profile })
   } catch (err) {
     res.status(500).json({ message: `There was an error. Details: ${err}` })
   }
 }
 
-const putProduct = async (req, res) => {
+const putProfile = async (req, res) => {
   try {
     const { id } = req.params
-    const product = await Products
-      .findByIdAndUpdate(id, req.body, { useFindAndModify: false })
-    if (!product) {
+    const profile = await Profiles.findByIdAndUpdate(id, req.body)
+    if (!profile) {
       res.status(404).json({
         message: 'No valid entry found for provided ID.'
       })
@@ -50,11 +49,11 @@ const putProduct = async (req, res) => {
   }
 }
 
-const deleteProduct = async (req, res) => {
+const deleteProfile = async (req, res) => {
   try {
     const { id } = req.params
-    const product = await Products.findByIdAndDelete(id)
-    if (!product) {
+    const profile = await Profiles.findOneAndDelete(id)
+    if (!profile) {
       res.status(404).json({
         message: 'No valid entry found for provided ID.'
       })
@@ -66,9 +65,9 @@ const deleteProduct = async (req, res) => {
 }
 
 module.exports = {
-  postProducts,
-  getProduct,
-  getProducts,
-  putProduct,
-  deleteProduct
+  getProfile,
+  getProfiles,
+  postProfile,
+  putProfile,
+  deleteProfile
 }
