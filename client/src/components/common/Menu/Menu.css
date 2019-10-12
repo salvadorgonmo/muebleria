@@ -1,8 +1,76 @@
-.container {
+body {
+  margin: 0;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #130505;
+}
+
+.menu-container .hamburguer-icon {
+  display: none;
+}
+
+.icon {
+  margin-right: 6px;
+}
+
+.menu-container a {
   display: flex;
 }
 
-.products {
-  font-size: 50px;
+.menu-container div {
+  padding: 1rem;
+  color: white;
+  border: 1px solid white;
+  justify-content: flex-start;
+  float: left;
+}
+
+.menu-item {
+  font-size: 17px;
   text-decoration: none;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.menu-item:hover {
+  background-color: #B2B2B2;
+  color: black;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 645px) {
+  .menu-container a:not(:first-child) {
+    display: none;
+  }
+  .menu-container a:first-child {
+    text-align: left;
+  }
+
+  .menu-container a{
+    width: 100vw;
+  }
+
+  .menu-container div.hamburguer-icon {
+    display: flex;
+    font-size: 20px;
+    padding: 1rem;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .menu-container.responsive a:not(:first-child) {
+    display: block;
+    float: none;
+    text-align: left;
+  }
+
+  .menu-container.responsive {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
