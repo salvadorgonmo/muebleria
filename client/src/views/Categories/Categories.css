@@ -1,0 +1,90 @@
+body {
+    background-color: rgba(0, 0, 0, 0.438);
+}
+
+.containerBtnIn {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-top: 3vw;
+  padding-bottom: 1vw;
+  padding-left: 8vw;
+  padding-right: 8vw;
+}
+.containerButton {
+    width: 20vw;
+}
+
+.button {
+  color: white;
+  font-weight: bold;
+  border: 0ch;
+  background-color: #b8a49b;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  width: 100px;
+  height: 35px;
+}
+
+.button:hover {
+    border: 2px solid #dea26c;
+    cursor: pointer;
+    background-color:#f9f0e7;
+    color: #22353c;
+}
+
+.containerLabel {
+  padding-top: 3vw;
+  padding-bottom: 4vw;
+  padding-left: 8vw;
+  padding-right: 8vw;
+}
+
+.label {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+.containerInput {
+    display: flex;
+   /* padding: 1.4rem 1rem 1.6rem;*/
+}
+
+.inputButton {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  width: 35px;
+  height: 35px;
+  border-bottom: 3px solid #b8a49b;
+  border-top: 3px solid #b8a49b;
+  border-right: 3px solid #b8a49b;
+  border-left: 0ch;
+  background-color: white;
+  color: #22353c;
+}
+
+.inputButton:hover {
+  border: 2px solid #dea26c;
+  cursor: pointer;
+  background-color:#f9f0e7;
+  color: #22353c;
+}
+    
+
+.input {
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  border-bottom: 3px solid #b8a49b;
+  border-top: 3px solid #b8a49b;
+  border-left: 3px solid #b8a49b;
+  border-right: 0ch;
+  width: 5vw;
+  padding: 5px 10px 5px 10px;
+}
+
+.input:focus {
+  width: 20vw;
+  border: 2px solid #dea26c;
+}
+  

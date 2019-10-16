@@ -4,7 +4,7 @@ const Label = ({
   className,
   children
 }) => (
-  <label className={className} onClick={onClick}> {children} </label>
+  <label className={className} > {children} </label>
 )
 
 export default Label

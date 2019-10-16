@@ -1,10 +1,76 @@
-.table {
+
+body .table {
+  padding-top: 0%;
+  padding-left: 8vw;
+  padding-right: 8vW;
   display: flex;
   flex-direction: column;
 }
 
-.header {
+.headerRow {
+  color: white;
   display: flex;
-  border: 1px solid black;
-  padding: 1rem; 
+  /*border-bottom: 2px solid black; */
+}
+
+.headerColumn {
+  width: 50vw;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  background-color:#a26e49;
+  text-align: center;
+  justify-content: flex-start;
+  padding-top: 0.5vw;
+  padding-left: 8vw;
+  padding-right: 1vW;
+  padding-bottom: 0.5vw;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  color: #22353c;
+}
+
+.row:nth-child(even) {
+  background-color:#f9f0e7;
+}
+.row:nth-child(odd) {
+  background-color:#e7e3e2;
+}
+.column {
+  display: flex;
+  justify-content: flex-start;
+  width: 50vw;
+  text-align: center;
+  border-bottom: 1px solid #b8a49b;
+  font-size: 15px;
+  padding-top: 0.5vw;
+  padding-left: 8vw;
+  padding-right: 1vW;
+  padding-bottom: 0.5vw;
+}
+
+.button {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  width: 35px;
+  height: 28px;
+  border-radius: 5px;
+  border: 0ch;
+  background-color: #b8a49b;
+  color: #22353c;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color:#f9f0e7;
+  border: 2px solid #dea26c;
+  color: #286566;
+}
+
+.containerButton {
+  padding-left: 1px;
 }
