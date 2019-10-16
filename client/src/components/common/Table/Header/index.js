@@ -3,12 +3,19 @@ import Column from '../Column'
 import Row from '../Row'
 import styles from '../Table.css'
 
-const Header = () => (
-  <Row className={styles.header}>
-    <Column> # </Column>
-    <Column> Categoria </Column>
-    <Column> Acciones </Column>
-  </Row>
-)
+const Header = ({
+  headers,
+  classNameRow,
+  classNameColumn
+}) => {
+  console.log(headers);
+  return(
+    <Row className = {classNameRow}>
+      { headers.map(column => (
+        <Column className={classNameColumn} key = {column.id}>{ column.label }</Column>
+      ))}
+    </Row>
+  )
+    }
 
 export default Header

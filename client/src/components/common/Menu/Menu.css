@@ -5,7 +5,7 @@ body {
 .menu-container {
   display: flex;
   justify-content: space-between;
-  background-color: #130505;
+  background-color: #a26e49;
 }
 
 .menu-container .hamburguer-icon {
@@ -29,6 +29,8 @@ body {
 }
 
 .menu-item {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
   font-size: 17px;
   text-decoration: none;
   padding: 1rem;
@@ -37,8 +39,8 @@ body {
 }
 
 .menu-item:hover {
-  background-color: #B2B2B2;
-  color: black;
+  background-color: #f9f0e7;
+  color: #22353c;
   font-size: 18px;
 }
 

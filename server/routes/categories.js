@@ -9,7 +9,7 @@ const {
 } = require('../controllers/categories.js')
 const { authenticate } = require('../middlewares/auth')
 
-router.get('/', authenticate(), getCategories)
+router.get('/', getCategories)
 router.get('/:id', authenticate(), getCategory)
 router.post('/', authenticate(), postCategories)
 router.put('/:id', authenticate(), putCategory)
